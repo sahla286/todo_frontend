@@ -1,39 +1,3 @@
-// import { useState } from "react";
-// import { loginUser } from "../Services/api";
-// import { useNavigate } from "react-router-dom";
-// import { toast } from "react-toastify";
-
-// const Login = () => {
-//   const [user, setUser] = useState({ username: "", password: "" });
-//   const navigate = useNavigate();
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const response = await loginUser(user);
-//       localStorage.setItem("token", response.data.access);
-//       toast.success("Login successful!");
-//       navigate("/");
-//     } catch (error) {
-//       toast.error("Invalid credentials");
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Login</h2>
-//       <form onSubmit={handleSubmit}>
-//         <input type="text" placeholder="Username" required onChange={(e) => setUser({ ...user, username: e.target.value })} />
-//         <input type="password" placeholder="Password" required onChange={(e) => setUser({ ...user, password: e.target.value })} />
-//         <button type="submit">Login</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default Login;
-
-
 import React, { useState } from 'react';
 import { loginUser } from '../Services/api';
 import { useNavigate } from 'react-router-dom';
@@ -45,33 +9,6 @@ const Login = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const navigate = useNavigate();
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     setErrorMessage('');
-    //     setSuccessMessage('');
-    
-    //     if (!username || !password) {
-    //         setErrorMessage('Please fill in all fields.');
-    //         return;
-    //     }
-    
-    //     const data = { username, password };
-    
-    //     try {
-    //         const response = await loginUser(data);
-    
-    //         // Store both access and refresh tokens
-    //         localStorage.setItem('access_token', response.data.access);
-    //         localStorage.setItem('refresh_token', response.data.refresh);
-    //         localStorage.setItem('username', response.data.username);
-    
-    //         setSuccessMessage('Login successful!');
-    //         setTimeout(() => navigate('/home'), 2000);
-    //     } catch (error) {
-    //         setErrorMessage('Invalid credentials');
-    //     }
-    // };
-    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -87,15 +24,12 @@ const Login = () => {
     
         try {
             const response = await loginUser(data);
-    
-            // Debugging: Check API response structure
+
             console.log(response.data);
-    
-            // Store tokens
+
             localStorage.setItem('access_token', response.data.access);
             localStorage.setItem('refresh_token', response.data.refresh);
-    
-            // Store the entered username since API doesn't return it
+
             localStorage.setItem('username', username); 
     
             setSuccessMessage('Login successful!');

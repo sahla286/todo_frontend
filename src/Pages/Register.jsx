@@ -1,39 +1,3 @@
-// import { useState } from "react";
-// import { registerUser } from "../Services/api";
-// import { useNavigate } from "react-router-dom";
-// import { toast } from "react-toastify";
-
-// const Register = () => {
-//   const [user, setUser] = useState({ username: "", email: "", password: "" });
-//   const navigate = useNavigate();
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       await registerUser(user);
-//       toast.success("Registration successful!");
-//       navigate("/login");
-//     } catch (error) {
-//       toast.error("Registration failed!");
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Register</h2>
-//       <form onSubmit={handleSubmit}>
-//         <input type="text" placeholder="Username" required onChange={(e) => setUser({ ...user, username: e.target.value })} />
-//         <input type="email" placeholder="Email" required onChange={(e) => setUser({ ...user, email: e.target.value })} />
-//         <input type="password" placeholder="Password" required onChange={(e) => setUser({ ...user, password: e.target.value })} />
-//         <button type="submit">Register</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default Register;
-
-
 import React, { useState } from "react";
 import { registerUser } from "../Services/api";
 import { useNavigate } from "react-router-dom";

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import TaskList from "./TaskList";
-import TaskForm from "./TaskForm";
 import CalendarView from "./CalendarView";
 import { getTasks } from "../Services/api";
 
@@ -18,9 +16,6 @@ const Home = () => {
 
   return (
     <div className="container">
-      {/* <h2>To-Do List Management</h2> */}
-      {/* <TaskForm fetchTasks={fetchTasks} />
-      <TaskList tasks={tasks} fetchTasks={fetchTasks} /> */}
       <CalendarView tasks={tasks} />
     </div>
   );

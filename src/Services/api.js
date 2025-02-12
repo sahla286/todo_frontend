@@ -107,7 +107,6 @@ const api = axios.create({
   },
 });
 
-// ✅ Function to refresh token
 const refreshAccessToken = async () => {
     const refresh = localStorage.getItem("refresh_token");
     if (!refresh) {
@@ -132,22 +131,6 @@ const refreshAccessToken = async () => {
     }
 };
 
-
-// async function refreshAccessToken() {
-//     try {
-//         const refreshToken = localStorage.getItem("refresh_token");
-//         const response = await axios.post("http://127.0.0.1:8000/task/refresh/", { refresh: refreshToken });
-//         localStorage.setItem("access_token", response.data.access);
-//         return response.data.access;
-//     } catch (error) {
-//         console.error("Token refresh failed:", error.response?.data);
-//         localStorage.removeItem("access_token");
-//         localStorage.removeItem("refresh_token");// Redirect to login
-//     }
-// }
-
-
-// ✅ Add Axios request interceptor (Attach Token to Requests)
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("access_token");
@@ -186,19 +169,19 @@ export const registerUser = (userData) => api.post("user/", userData);
 export const loginUser = (userData) => api.post("tokenpair/", userData);
 export const getTasks = () => api.get("task/tasks/");
 export const fetchTasks = () => api.get("task/tasks/");
-// export const createTask = (task) => api.post("task/tasks/", task);
-export const createTask = (task) => {
-    const token = localStorage.getItem("access_token");
+export const createTask = (task) => api.post("task/tasks/", task);
+// export const createTask = (task) => {
+//     const token = localStorage.getItem("access_token");
     
-    if (!token) {
-        console.error("No access token found.");
-        return Promise.reject(new Error("No access token found."));
-    }
+//     if (!token) {
+//         console.error("No access token found.");
+//         return Promise.reject(new Error("No access token found."));
+//     }
 
-    return api.post("task/tasks/", task, {
-        headers: { Authorization: `Bearer ${token}` }
-    });
-};
+//     return api.post("task/tasks/", task, {
+//         headers: { Authorization: `Bearer ${token}` }
+//     });
+// };
 
 export const updateTask = (id, task) => api.put(`task/tasks/${id}/`, task);
 export const deleteTask = (id) => api.delete(`task/tasks/${id}/`);
