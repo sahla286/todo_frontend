@@ -182,8 +182,8 @@ api.interceptors.response.use(
 );
 
 // ✅ API functions using the axios instance
-export const registerUser = (userData) => api.post("task/register/", userData);
-export const loginUser = (userData) => api.post("task/login/", userData);
+export const registerUser = (userData) => api.post("user/", userData);
+export const loginUser = (userData) => api.post("tokenpair/", userData);
 export const getTasks = () => api.get("task/tasks/");
 export const fetchTasks = () => api.get("task/tasks/");
 // export const createTask = (task) => api.post("task/tasks/", task);

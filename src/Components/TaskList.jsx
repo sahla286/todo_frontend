@@ -179,7 +179,7 @@ const TaskList = ({ refresh }) => {
   const [editingTask, setEditingTask] = useState(null);
   const [sortBy, setSortBy] = useState(""); // Sorting option
   const [filterBy, setFilterBy] = useState(""); // Filtering option
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("access_token");
 
   useEffect(() => {
     fetchTasks(token)
@@ -245,24 +245,7 @@ const TaskList = ({ refresh }) => {
 
   return (
     <div className="container mt-4">
-      <h3>Task List</h3>
-
-      {/* Sorting & Filtering Options */}
-      {/* <div className="d-flex mb-3">
-        <select className="form-select me-2" onChange={(e) => setSortBy(e.target.value)}>
-          <option value="">Sort By</option>
-          <option value="title">Title</option>
-          <option value="due_date">Due Date</option>
-          <option value="status">Status</option>
-        </select>
-
-        <select className="form-select" onChange={(e) => setFilterBy(e.target.value)}>
-          <option value="">Filter By Status</option>
-          <option value="pending">Pending</option>
-          <option value="progress">In Progress</option>
-          <option value="completed">Completed</option>
-        </select>
-      </div> */}
+      <h3 className="text-center">Task List</h3>
 
 
 <div className="d-flex justify-content-between mb-3">

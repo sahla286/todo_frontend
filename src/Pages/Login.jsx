@@ -45,6 +45,34 @@ const Login = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const navigate = useNavigate();
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setErrorMessage('');
+    //     setSuccessMessage('');
+    
+    //     if (!username || !password) {
+    //         setErrorMessage('Please fill in all fields.');
+    //         return;
+    //     }
+    
+    //     const data = { username, password };
+    
+    //     try {
+    //         const response = await loginUser(data);
+    
+    //         // Store both access and refresh tokens
+    //         localStorage.setItem('access_token', response.data.access);
+    //         localStorage.setItem('refresh_token', response.data.refresh);
+    //         localStorage.setItem('username', response.data.username);
+    
+    //         setSuccessMessage('Login successful!');
+    //         setTimeout(() => navigate('/home'), 2000);
+    //     } catch (error) {
+    //         setErrorMessage('Invalid credentials');
+    //     }
+    // };
+    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage('');
@@ -60,9 +88,15 @@ const Login = () => {
         try {
             const response = await loginUser(data);
     
-            // Store both access and refresh tokens
+            // Debugging: Check API response structure
+            console.log(response.data);
+    
+            // Store tokens
             localStorage.setItem('access_token', response.data.access);
             localStorage.setItem('refresh_token', response.data.refresh);
+    
+            // Store the entered username since API doesn't return it
+            localStorage.setItem('username', username); 
     
             setSuccessMessage('Login successful!');
             setTimeout(() => navigate('/home'), 2000);

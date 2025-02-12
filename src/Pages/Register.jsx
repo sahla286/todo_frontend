@@ -61,7 +61,7 @@ const Register = () => {
       const response = await registerUser(data);
 
       if (response.status === 201) {
-        setSuccessMessage("Account created successfully. Check your email for activation.");
+        setSuccessMessage("Account created successfully. Please login.");
         setTimeout(() => navigate("/login"), 3000);
       } else {
         setErrorMessage("Something went wrong, please try again.");
