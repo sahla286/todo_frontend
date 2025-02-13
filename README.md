@@ -33,12 +33,11 @@ TaskManager Frontend (React)
 - MySQL Server
 - Git
 
-
 ### Frontend Setup (React)
 1. Install Node.js & Create React App:
      - npm i -g vite -> install vite
-     - npm create vite@latest <appname> -> create project folder
-     - cd <appname>
+     - npm create vite@latest [appname] -> create project folder
+     - cd [appname]
      - npm install -> create node module
    
 2. Install Dependencies:
