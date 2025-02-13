@@ -11,18 +11,57 @@ function TaskForm({ refreshTasks }) {
     setTask({ ...task, [e.target.name]: e.target.value });
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+    
+  //   console.log("Submitting Task:", task);  
+
+  //   try {
+  //     const response = await createTask(task);
+  //     console.log("Task Created Response:", response);  
+      
+  //     if (response?.status === 201 || response?.status === 200) {
+  //       toast.success("Task created successfully!");
+        
+  //       if (typeof refreshTasks === "function") {
+  //         refreshTasks();
+  //       } else {
+  //         console.warn("refreshTasks is not a function");
+  //       }
+  //       setTask({ title: "", description: "", status: "pending", due_date: "" });
+  //       setTimeout(() => {
+  //         navigate("/home", { replace: true });
+  //       }, 2000);
+  //     } else {
+  //       throw new Error("Unexpected response");
+  //     }
+      
+  //   } catch (error) {
+  //     console.error("Error creating task:", error.response?.data || error.message);
+  //     toast.error("Failed to create task");
+  //   }
+  // };
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    console.log("Submitting Task:", task);  
-
+  
+    const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
+    if (task.due_date < today) {
+      toast.error("Due date cannot be in the past!");
+      return; // Stop submission if the date is invalid
+    }
+  
+    console.log("Submitting Task:", task);
+  
     try {
       const response = await createTask(task);
-      console.log("Task Created Response:", response);  
-      
+      console.log("Task Created Response:", response);
+  
       if (response?.status === 201 || response?.status === 200) {
         toast.success("Task created successfully!");
-        
+  
         if (typeof refreshTasks === "function") {
           refreshTasks();
         } else {
@@ -35,13 +74,12 @@ function TaskForm({ refreshTasks }) {
       } else {
         throw new Error("Unexpected response");
       }
-      
     } catch (error) {
       console.error("Error creating task:", error.response?.data || error.message);
       toast.error("Failed to create task");
     }
   };
-
+  
   return (
     <div className="container" >
       <div className="row justify-content-center" style={{marginTop:'120px'}}>
