@@ -36,10 +36,10 @@ TaskManager Frontend (React)
 
 ### Frontend Setup (React)
 1. Install Node.js & Create React App:
-      npm i -g vite -> install vite
-      npm create vite@latest <appname> -> create project folder
-      cd <appname>
-      npm install -> create node module
+     - npm i -g vite -> install vite
+     - npm create vite@latest <appname> -> create project folder
+     - cd <appname>
+     - npm install -> create node module
    
 2. Install Dependencies:
       npm install axios react-router-dom react-bootstrap bootstrap react-toastify @fullcalendar/react @fullcalendar/daygrid @fullcalendar/interaction react-modal
