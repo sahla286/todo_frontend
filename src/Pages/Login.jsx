@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
 import { loginUser } from '../Services/api';
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-    const [successMessage, setSuccessMessage] = useState('');
     const navigate = useNavigate();
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrorMessage('');
-        setSuccessMessage('');
     
         if (!username || !password) {
-            setErrorMessage('Please fill in all fields.');
+            toast.error('Please fill in all fields.');
             return;
         }
     
@@ -32,22 +30,21 @@ const Login = () => {
 
             localStorage.setItem('username', username); 
     
-            setSuccessMessage('Login successful!');
+            toast.success('Login successful!');
             setTimeout(() => navigate('/home'), 2000);
         } catch (error) {
-            setErrorMessage('Invalid credentials');
+            toast.error('Invalid credentials');
         }
     };
     
 
     return (
-        <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+        <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
             <div className="col-md-4">
                 <div className="card shadow p-4">
                     <div className="card-body">
                         <h4 className="text-center mb-3">Login to your account</h4>
-                        {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-                        {successMessage && <div className="alert alert-success">{successMessage}</div>}
+               
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3">
                                 <label htmlFor="username" className="form-label">Username</label>
@@ -84,3 +81,7 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+

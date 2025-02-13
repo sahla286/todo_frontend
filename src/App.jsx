@@ -1,25 +1,19 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import Home from "./Components/Home";
+import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
-import LandingPage from "./Pages/LandingPage";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Navbar from "./Components/Navbar";
-import TaskForm from "./Components/TaskForm";
-import TaskList from "./Components/TaskList";
+import Navbar from "./Components/Navbar/Navbar";
+import TaskForm from "./Pages/TaskForm";
+import TaskList from "./Pages/TaskList";
 
 function App() {
-  const location = useLocation();
-
-  // Hide Navbar on Landing Page, Login, and Registration pages
-  const hideNavbarRoutes = ["/", "/login", "/register"];
-  const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
-
   return (
     <>
       <ToastContainer />
-      {shouldShowNavbar && <Navbar />} {/* Show Navbar only if allowed */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />

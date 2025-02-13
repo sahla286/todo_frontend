@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CalendarView from "./CalendarView";
+import CalendarView from "../Components/calenderView/CalendarView";
 import { getTasks } from "../Services/api";
 
 const Home = () => {

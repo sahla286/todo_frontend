@@ -1,0 +1,47 @@
+.calendar-container {
+    margin-top: 100px;
+}
+.status-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+.status-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-shrink: 0;
+    min-width: 100px; 
+}
+.status-item span {
+    color: white;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.status-item .pending {
+    background-color: #f87171;
+}
+  
+.status-item .progress {
+    background-color: #60a5fa;
+    min-width: 120px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    font-size: 16px; 
+    border-radius: 12px;
+}
+.status-item .completed {
+    background-color: #34d399;
+}
+  
