@@ -25,7 +25,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm px-3">
         <div className="container-fluid d-flex justify-content-between">
           <Link className="navbar-brand fw-bold fs-4 text-primary" to="/">
-            Task Manager
+            TaskManager
           </Link>
 
           <div className="flex flex-col space-y-4">
@@ -66,7 +66,7 @@ const Navbar = () => {
     }}
     className="hover:bg-gray-200"
   >
-    List Task
+    Task List
   </Link>
 </div>
 

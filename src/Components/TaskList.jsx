@@ -142,7 +142,7 @@ const TaskList = ({ refresh }) => {
       </table>
 
       {editingTask && (
-        <div className="modal show d-block" tabIndex="-1">
+        <div className="modal show d-block" style={{marginTop:'100px'}} tabIndex="-1">
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
@@ -185,8 +185,8 @@ const TaskList = ({ refresh }) => {
                 <button type="button" className="btn btn-secondary" onClick={() => setEditingTask(null)}>
                   Cancel
                 </button>
-                <button type="button" className="btn btn-success" onClick={handleSaveEdit}>
-                  Save Changes
+                <button type="button" className="btn btn-primary" onClick={handleSaveEdit}>
+                  Save
                 </button>
               </div>
             </div>
@@ -198,3 +198,4 @@ const TaskList = ({ refresh }) => {
 };
 
 export default TaskList;
+

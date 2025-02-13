@@ -1,215 +1,17 @@
-
-
-
-// import React, { useEffect, useState } from "react";
-// import FullCalendar from "@fullcalendar/react";
-// import dayGridPlugin from "@fullcalendar/daygrid";
-// import { fetchCalendarTasks } from "../Services/api";
-
-// const CalendarView = () => {
-//   const [tasks, setTasks] = useState([]);
-
-//   useEffect(() => {
-//     const token = localStorage.getItem("token"); // Retrieve token from localStorage
-//     if (token) {
-//       fetchTasks(token);
-//     }
-//   }, []);
-
-//   const fetchTasks = async (token) => {
-//     try {
-//       const response = await fetchCalendarTasks(token);
-//       console.log("Fetched Tasks:", response.data); // Debugging
-
-//       const formattedTasks = response.data.map((task) => ({
-//         title: task.title,
-//         start: task.start, // Ensure correct field name
-//         backgroundColor: getStatusColor(task.status), // Full cell color
-//         borderColor: getStatusColor(task.status), // Border color
-//         display: "background", // Full cell highlight
-//       }));
-//       setTasks(formattedTasks);
-//     } catch (error) {
-//       console.error("Error fetching tasks:", error);
-//     }
-//   };
-
-//   // Function to determine event color based on task status
-//   const getStatusColor = (status) => {
-//     switch (status?.toLowerCase()) {
-//       case "pending":
-//         return "red";
-//       case "in progress":
-//         return "yellow";
-//       case "completed":
-//         return "green";
-//       default:
-//         return "blue";
-//     }
-//   };
-
-//   return (
-//     <div className="calendar-container">
-//       <FullCalendar
-//         plugins={[dayGridPlugin]}
-//         initialView="dayGridMonth"
-//         events={tasks}
-//         eventContent={renderEventContent} // Custom function to display title inside the colored cell
-//       />
-//     </div>
-//   );
-// };
-
-// // Custom render function to show full cell color + task title
-// const renderEventContent = (eventInfo) => {
-//   return (
-//     <div
-//       style={{
-//         backgroundColor: eventInfo.event.backgroundColor,
-//         width: "100%",
-//         height: "100%",
-//         borderRadius: "4px",
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center",
-//         color: "white",
-//         fontWeight: "bold",
-//         fontSize: "14px",
-//         textAlign: "center",
-//         padding: "5px",
-//       }}
-//     >
-//       {eventInfo.event.title} {/* Show task title */}
-//     </div>
-//   );
-// };
-
-// export default CalendarView;
-
-
-
-
-// import React, { useEffect, useState } from "react";
-// import FullCalendar from "@fullcalendar/react";
-// import dayGridPlugin from "@fullcalendar/daygrid";
-// import { fetchCalendarTasks } from "../Services/api";
-
-// const CalendarView = () => {
-//   const [tasks, setTasks] = useState([]);
-
-//   useEffect(() => {
-//     const token = localStorage.getItem("access_token"); // Retrieve token from localStorage
-//     if (token) {
-//       fetchTasks(token);
-//     }
-//   }, []);
-
-//   const fetchTasks = async (token) => {
-//     try {
-//       const response = await fetchCalendarTasks(token);
-//       console.log("Fetched Tasks:", response.data); // Debugging
-
-//       const formattedTasks = response.data.map((task) => ({
-//         title: task.title,
-//         start: task.start, // Ensure correct field name
-//         backgroundColor: getStatusColor(task.status), // Full cell color
-//         borderColor: getStatusColor(task.status), // Border color
-//         extendedProps: { status: task.status, description: task.description }, // Additional data for event
-//       }));
-//       setTasks(formattedTasks);
-//     } catch (error) {
-//       console.error("Error fetching tasks:", error);
-//     }
-//   };
-
-//   // Function to determine event color based on task status
-//   const getStatusColor = (status) => {
-//     switch (status?.toLowerCase()) {
-//       case "pending":
-//         return "#f87171"; // Tailwind's red-400
-//       case "in progress":
-//         return "#fbbf24"; // Tailwind's yellow-400
-//       case "completed":
-//         return "#34d399"; // Tailwind's green-400
-//       default:
-//         return "#60a5fa"; // Tailwind's blue-400
-//     }
-//   };
-
-//   return (
-//     <div className="calendar-container">
-//       <FullCalendar
-//         plugins={[dayGridPlugin]}
-//         initialView="dayGridMonth"
-//         events={tasks}
-//         eventContent={(eventInfo) => renderEventContent(eventInfo)}
-//       />
-//     </div>
-//   );
-// };
-
-// // Custom render function for events
-// const renderEventContent = (eventInfo) => {
-//   const { title, backgroundColor, extendedProps } = eventInfo.event;
-//   const { status, description } = extendedProps;
-
-//   return (
-//     <div
-//       style={{
-//         backgroundColor: backgroundColor,
-//         width: "100%",
-//         height: "100%",
-//         borderRadius: "6px",
-//         display: "flex",
-//         flexDirection: "column",
-//         justifyContent: "space-between",
-//         alignItems: "center",
-//         color: "white",
-//         fontWeight: "bold",
-//         fontSize: "14px",
-//         textAlign: "center",
-//         padding: "5px",
-//         position: "relative",
-//         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
-//         cursor: "pointer",
-//       }}
-//       className="calendar-event"
-//       title={`Status: ${status}\nDescription: ${description}`} // Tooltip with extra info
-//     >
-//        <span>{title}</span>
-//      {/* <div
-//         className="status-badge"
-//         style={{
-//           position: "absolute",
-//           top: "5px",
-//           left: "50%",
-//           transform: "translateX(-50%)",
-//           padding: "2px 8px",
-//           borderRadius: "12px",
-//           backgroundColor: "#333",
-//           color: "white",
-//           fontSize: "12px",
-//         }}
-//       >
-//         {status}
-//       </div> */}
-//     </div>
-//   );
-// };
-
-// export default CalendarView;
-
-
 import React, { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import { fetchCalendarTasks } from "../Services/api";
+import { fetchCalendarTasks, deleteTask, updateTask } from "../Services/api";
+import { Modal, Button, Form } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 const CalendarView = () => {
   const [tasks, setTasks] = useState([]);
-
+  const [selectedTask, setSelectedTask] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  
   useEffect(() => {
-    const token = localStorage.getItem("access_token"); // Retrieve token from localStorage
+    const token = localStorage.getItem("access_token");
     if (token) {
       fetchTasks(token);
     }
@@ -218,14 +20,17 @@ const CalendarView = () => {
   const fetchTasks = async (token) => {
     try {
       const response = await fetchCalendarTasks(token);
-      console.log("Fetched Tasks:", response.data); // Debugging
-
       const formattedTasks = response.data.map((task) => ({
+        id: task.id,
         title: task.title,
-        start: task.start, // Ensure correct field name
-        backgroundColor: getStatusColor(task.status), // Full cell color
-        borderColor: getStatusColor(task.status), // Border color
-        extendedProps: { status: task.status, description: task.description }, // Additional data for event
+        start: task.start,
+        backgroundColor: getStatusColor(task.status),
+        borderColor: getStatusColor(task.status),
+        extendedProps: { 
+          status: task.status, 
+          description: task.description, 
+          due_date: task.due_date 
+        },
       }));
       setTasks(formattedTasks);
     } catch (error) {
@@ -233,25 +38,68 @@ const CalendarView = () => {
     }
   };
 
-  // Function to determine event color based on task status
   const getStatusColor = (status) => {
     switch (status?.toLowerCase()) {
-      case "pending":
-        return "#f87171"; // Tailwind's red-400
-      case "progress":
-        return  "#60a5fa"; // Tailwind's yellow-400
-      case "completed":
-        return "#34d399"; // Tailwind's green-400
-      default:
-        return "#fbbf24"; // Tailwind's blue-400
+      case "pending": return "#f87171";
+      case "progress": return "#60a5fa";
+      case "completed": return "#34d399";
+      default: return "#fbbf24";
+    }
+  };
+
+  // const handleEventClick = (clickInfo) => {
+  //   setSelectedTask({ ...clickInfo.event.extendedProps, id: clickInfo.event.id, title: clickInfo.event.title });
+  //   setShowModal(true);
+  // };
+
+
+  const handleEventClick = (clickInfo) => {
+    setSelectedTask({
+      id: clickInfo.event.id,
+      title: clickInfo.event.title,
+      description: clickInfo.event.extendedProps?.description || "", 
+      due_date: clickInfo.event.extendedProps?.due_date || "",
+      status: clickInfo.event.extendedProps?.status || "pending",
+    });
+    setShowModal(true);
+  };
+  
+
+
+  const handleEditChange = (e) => {
+    setSelectedTask({ ...selectedTask, [e.target.name]: e.target.value });
+  };
+
+  const handleSaveEdit = async () => {
+    try {
+      await updateTask(selectedTask.id, selectedTask);
+      setShowModal(false);
+      fetchTasks(localStorage.getItem("access_token"));
+      toast.success("Task updated successfully");
+    } catch (error) {
+      toast.error("Failed to update task");
+    }
+  };
+
+  const handleDelete = async () => {
+    if (window.confirm("Are you sure you want to delete this task?")) {
+      try {
+        await deleteTask(selectedTask.id);
+        setShowModal(false);
+        fetchTasks(localStorage.getItem("access_token"));
+        toast.success("Task deleted successfully");
+      } catch (error) {
+        toast.error("Failed to delete task");
+      }
     }
   };
 
   return (
-    <div className="calendar-container">
-      {/* Status Indicators Section */}
-      <div className="status-indicators mb-6" style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", width: "100%" }}>
-  <div className="status-item" style={{ textAlign: "center", flexShrink: 0 }}>
+    <div className="calendar-container mb-5">
+
+        {/* Status Indicators Section */}
+       <div className="status-indicators mb-6" style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", width: "100%" }}>
+   <div className="status-item" style={{ textAlign: "center", flexShrink: 0 }}>
     <span
       style={{
         backgroundColor: "#f87171",
@@ -295,49 +143,47 @@ const CalendarView = () => {
   </div>
 </div>
 
-
-
-
-      {/* Full Calendar */}
       <FullCalendar
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
         events={tasks}
-        eventContent={(eventInfo) => renderEventContent(eventInfo)}
+        eventClick={handleEventClick}
       />
-    </div>
-  );
-};
 
-// Custom render function for events
-const renderEventContent = (eventInfo) => {
-  const { title, backgroundColor, extendedProps } = eventInfo.event;
-  const { status, description } = extendedProps;
-
-  return (
-    <div
-      style={{
-        backgroundColor: backgroundColor,
-        width: "100%",
-        height: "100%",
-        borderRadius: "6px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-        color: "white",
-        fontWeight: "bold",
-        fontSize: "14px",
-        textAlign: "center",
-        padding: "5px",
-        position: "relative",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
-        cursor: "pointer",
-      }}
-      className="calendar-event"
-      title={`Status: ${status}\nDescription: ${description}`} // Tooltip with extra info
-    >
-      <span>{title}</span>
+      {/* Task Modal */}
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Task</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group>
+              <Form.Label>Title</Form.Label>
+              <Form.Control name="title" value={selectedTask?.title || ""} onChange={handleEditChange} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Description</Form.Label>
+              <Form.Control as="textarea" name="description" value={selectedTask?.description || ""} onChange={handleEditChange} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Due Date</Form.Label>
+              <Form.Control type="date" name="due_date" value={selectedTask?.due_date || ""} onChange={handleEditChange} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Status</Form.Label>
+              <Form.Select name="status" value={selectedTask?.status || ""} onChange={handleEditChange}>
+                <option value="pending">Pending</option>
+                <option value="progress">In Progress</option>
+                <option value="completed">Completed</option>
+              </Form.Select>
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleDelete}>Delete</Button>
+          <Button variant="primary" onClick={handleSaveEdit}>Save</Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

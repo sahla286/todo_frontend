@@ -52,12 +52,12 @@ const TaskForm = ({ refreshTasks }) => {
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label className="form-label">Title</label>
-                  <input type="text" className="form-control" name="title" placeholder="Enter Task Title" value={task.title} onChange={handleChange} required />
+                  <input type="text" className="form-control" name="title" placeholder="Enter Title" value={task.title} onChange={handleChange} required />
                 </div>
 
                 <div className="mb-3">
                   <label className="form-label">Description</label>
-                  <textarea className="form-control" name="description" placeholder="Enter Task Description" value={task.description} onChange={handleChange}></textarea>
+                  <textarea className="form-control" name="description" placeholder="Enter Description" value={task.description} onChange={handleChange}></textarea>
                 </div>
 
                 <div className="mb-3">
