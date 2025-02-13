@@ -7,7 +7,7 @@ TaskManager
    - Authentication: JWT (Django Simple JWT)
 
 TaskManager Frontend (React)
- → Pages:
+→ Pages:
    - Landing Page: Introduction to the TaskManager app with a call-to-action to log in.
    - Registration Page: Allows users to create an account.
    - Login Page: Secure authentication for returning users.
@@ -21,8 +21,8 @@ TaskManager Frontend (React)
         Supports sorting by date, title, or status.
         Includes filtering options (e.g., completed, pending, progress).
 
- → Features:
-     Responsive UI: Works across mobile, tablet, and desktop devices for a smooth user experience.
+ →  Features:
+      Responsive UI: Works across mobile, tablet, and desktop devices for a smooth user experience.
 
 ## Setup & Deployment Guide
 
