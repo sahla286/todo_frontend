@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Navbar.css";
 
-const Navbar = () => {
+function Navbar() {
   const [username, setUsername] = useState(localStorage.getItem("username") || "Guest");
   const navigate = useNavigate();
   const location = useLocation();

@@ -20,8 +20,8 @@ function LandingPage() {
           <li>✔ Navigate between months and view daily task summaries</li>
         </ul>
 
-        <p className="lt-text">Stay productive and organized with
-          <span className="app-name">TaskManager</span>!
+        <p className="lt-text">Stay productive and organized with 
+          <span className="app-name"> TaskManager</span>!
         </p>
 
         <Link to="/login" className="btn-primary">

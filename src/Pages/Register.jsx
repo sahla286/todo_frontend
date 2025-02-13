@@ -3,7 +3,7 @@ import { registerUser } from "../Services/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Register = () => {
+function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

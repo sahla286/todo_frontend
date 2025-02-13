@@ -3,7 +3,7 @@ import { fetchTasks, deleteTask, updateTask } from "../Services/api";
 import { toast } from "react-toastify";
 import { Modal, Button, Form } from "react-bootstrap";
 
-const TaskList = ({ refresh }) => {
+function TaskList({ refresh }) {
   const [tasks, setTasks] = useState([]);
   const [selectedTask, setSelectedTask] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -72,6 +72,29 @@ const TaskList = ({ refresh }) => {
   return (
     <div className="container" style={{marginTop:'100px'}}>
       <h3 className="text-center mb-3">Task List</h3>
+
+
+      <div className="d-flex justify-content-between mb-3">
+  <div className="w-auto">
+    <select className="form-select form-select-sm me-2" onChange={(e) => setSortBy(e.target.value)}>
+      <option value="">Sort By</option>
+      <option value="title">Title</option>
+      <option value="due_date">Due Date</option>
+      <option value="status">Status</option>
+    </select>
+  </div>
+
+  <div className="w-auto">
+    <select className="form-select form-select-sm" onChange={(e) => setFilterBy(e.target.value)}>
+      <option value="">Filter By Status</option>
+      <option value="pending">Pending</option>
+      <option value="progress">In Progress</option>
+      <option value="completed">Completed</option>
+    </select>
+  </div>
+</div>
+
+
       <table className="table table-striped table-hover">
         <thead>
           <tr>
@@ -112,7 +135,6 @@ const TaskList = ({ refresh }) => {
         </tbody>
       </table>
       
-      {/* Edit Task Modal */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Task</Modal.Title>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createTask } from "../Services/api";
 import { toast } from "react-toastify";
 
-const TaskForm = ({ refreshTasks }) => {
+function TaskForm({ refreshTasks }) {
   const [task, setTask] = useState({ title: "", description: "", status: "pending", due_date: "" });
   const navigate = useNavigate();  
 

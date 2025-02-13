@@ -6,7 +6,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "./CalendarView.css"; 
 
-const CalendarView = () => {
+function CalendarView() {
   const [tasks, setTasks] = useState([]);
   const [selectedTask, setSelectedTask] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -172,3 +172,8 @@ const CalendarView = () => {
 };
 
 export default CalendarView;
+
+
+
+
+
