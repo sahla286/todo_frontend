@@ -17,7 +17,6 @@ function LandingPage() {
           <li>✔ Assign task details including title, description, status, and due date</li>
           <li>✔ View tasks in a sortable and filterable list</li>
           <li>✔ Seamless calendar integration to track deadlines</li>
-          {/* <li>✔ Navigate between months and view daily task summaries</li> */}
         </ul>
 
         <p className="lt-text">Stay productive and organized with 
