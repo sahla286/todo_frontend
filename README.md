@@ -7,11 +7,9 @@ TaskManager
    - Authentication: JWT (Django Simple JWT)
 
 TaskManager Frontend (React)
-<<<<<<< HEAD
  → Pages:
 =======
 → Pages:
->>>>>>> 3d1139530c21b37560db80ae1b6248f8ef01f5c7
    - Landing Page: Introduction to the TaskManager app with a call-to-action to log in.
    - Registration Page: Allows users to create an account.
    - Login Page: Secure authentication for returning users.
@@ -24,8 +22,6 @@ TaskManager Frontend (React)
         Displays all tasks in a structured format.
         Supports sorting by date, title, or status.
         Includes filtering options (e.g., completed, pending, progress).
-
-<<<<<<< HEAD
  → Features:
      Responsive UI: Works across mobile, tablet, and desktop devices for a smooth user experience.
 
@@ -35,7 +31,7 @@ TaskManager Frontend (React)
  →  Features:
       Responsive UI: Works across mobile, tablet, and desktop devices for a smooth user experience.
 
->>>>>>> 3d1139530c21b37560db80ae1b6248f8ef01f5c7
+
 ## Setup & Deployment Guide
 
 ### Prerequisites:
@@ -45,7 +41,7 @@ TaskManager Frontend (React)
 - MySQL Server
 - Git
 
-<<<<<<< HEAD
+
 
 ### Frontend Setup (React)
 1. Install Node.js & Create React App:
@@ -60,7 +56,6 @@ TaskManager Frontend (React)
      - npm create vite@latest [appname] -> create project folder
      - cd [appname]
      - npm install -> create node module
->>>>>>> 3d1139530c21b37560db80ae1b6248f8ef01f5c7
    
 2. Install Dependencies:
       npm install axios react-router-dom react-bootstrap bootstrap react-toastify @fullcalendar/react @fullcalendar/daygrid @fullcalendar/interaction react-modal
